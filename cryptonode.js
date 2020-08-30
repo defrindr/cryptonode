@@ -1,4 +1,4 @@
-class cryptonode {
+class cryptonodeJS {
 
     default_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -389,4 +389,4 @@ class cryptonode {
 }
 
 
-module.exports = cryptonode;
+module.exports = cryptonodeJS;

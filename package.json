@@ -1,7 +1,7 @@
 {
-  "name": "@defrindr/cryptonode",
-  "version": "1.0.0",
-  "description": "Cryptonode is a simple library cryptography for NodeJS",
+  "name": "cryptonode.js",
+  "version": "0.0.1",
+  "description": "Cryptonode.js is a simple library cryptography for NodeJS",
   "main": "cryptonode.js",
   "directories": {
     "test": "test"
