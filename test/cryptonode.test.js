@@ -1,13 +1,13 @@
-const EncryptJS = require("../encrypt");
+const cryptonode = require("./../cryptonode");
 
 const {
     expect
 } = require("chai");
 
-const c = new EncryptJS;
+const c = new cryptonode;
 
 
-describe("Encrypt.js Test Driven Development", function () {
+describe("Cryptonode Test Driven Development", function () {
     describe('Caesar Cipher', function () {
 
         it("blank params",

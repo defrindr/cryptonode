@@ -1,4 +1,4 @@
-class EncryptJS {
+class cryptonode {
 
     default_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -389,4 +389,4 @@ class EncryptJS {
 }
 
 
-module.exports = EncryptJS;
+module.exports = cryptonode;

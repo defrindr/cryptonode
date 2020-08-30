@@ -1,5 +1,5 @@
 {
-  "name": "encrypt.js",
+  "name": "cryptonode",
   "version": "0.0.1",
   "description": "Simple library cryptography for nodejs",
   "main": "encrypt.js",
@@ -16,17 +16,17 @@
     "nodejs",
     "library",
     "crypto",
-    "encrypt.js",
+    "cryptonode",
     "encrypt"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/defrindr/encrypt.js.git"
+    "url": "git+https://github.com/defrindr/cryptonode.js.git"
   },
   "bugs": {
-    "url": "https://github.com/defrindr/encrypt.js/issues"
+    "url": "https://github.com/defrindr/cryptonode.js/issues"
   },
-  "homepage": "https://github.com/defrindr/encrypt.js#readme",
+  "homepage": "https://github.com/defrindr/cryptonode.js#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.1.3"
