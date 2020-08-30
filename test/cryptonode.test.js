@@ -1,10 +1,10 @@
-const cryptonode = require("./../cryptonode");
+const cryptonodeJS = require("./../cryptonode");
 
 const {
     expect
 } = require("chai");
 
-const c = new cryptonode;
+const c = new cryptonodeJS;
 
 
 describe("Cryptonode Test Driven Development", function () {

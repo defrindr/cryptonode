@@ -1,23 +1,23 @@
-# CryptoNode
+# CryptoNode.JS
 
 <img img src="https://i.ibb.co/6mJRk0r/coollogo-com-62664414.png" alt="Crypto.Node" style="width:80vw;display:block;height: auto;margin:10px auto">
 
 ## Description
 
-Cryptonode is a simple library cryptography for NodeJS
+Cryptonode.js is a simple library cryptography for NodeJS
 
 
 ## Installation
 
 ```
-npm i cryptonode
+npm i cryptonode.js
 ```
 
 
 ## Table of Contents
 
 
-- [CryptoNode](#cryptonode)
+- [CryptoNodeJS](#cryptonode.js)
     - [Description](#description)
     - [Installation](#installation)
     - [Table of Contents](#table-of-contents)
