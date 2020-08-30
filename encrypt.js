@@ -1,15 +1,15 @@
-class Crypto {
+class EncryptJS {
 
     default_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     _switcher(type, enc, dec) {
         switch (type.toLowerCase()) {
             case 'e':
-            case 'encript':
+            case 'encrypt':
             case 'encode':
                 return enc();
             case 'd':
-            case 'decript':
+            case 'decrypt':
             case 'decode':
                 return dec();
         }
@@ -304,7 +304,7 @@ class Crypto {
         }
 
         /**
-         * Encription plain_text
+         * Encryption plain_text
          * (a x + b) % len
          * 
          * @param {*} plain_text 
@@ -313,7 +313,7 @@ class Crypto {
          * @param {*} letters 
          * @return {String}
          */
-        const encript = (plain_text, a, b, letters) => {
+        const Encrypt = (plain_text, a, b, letters) => {
             let is_uppercase = false;
             let len = letters.length;
 
@@ -376,7 +376,7 @@ class Crypto {
         }
 
         let callback_e = function () {
-            return encript(source_text, keys[0], keys[1], letters);
+            return Encrypt(source_text, keys[0], keys[1], letters);
         }
 
         let callback_d = function () {
@@ -389,4 +389,4 @@ class Crypto {
 }
 
 
-module.exports = Crypto;
+module.exports = EncryptJS;

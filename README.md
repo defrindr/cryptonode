@@ -1,9 +1,16 @@
-# Crypto.js
+# Encrypt.js
 
-<img src="https://i.ibb.co/cD3xKCT/coollogo-com-11673558.png" style="width:80vw;display:block;height:auto;margin:10px auto">
+<img src="https://i.ibb.co/d6QtmvL/imagebot.png" style="width:80vw;display:block;height:auto;margin:10px auto">
 
 ## Description
-Simple Package cryptography
+Simple library cryptography for NodeJS
+
+
+## Installation
+
+```
+npm i encrypt.js
+```
 
 
 ## Table of Contents
