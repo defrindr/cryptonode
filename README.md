@@ -1,22 +1,25 @@
-# Encrypt.js
+# CryptoNode
 
-<img src="https://i.ibb.co/d6QtmvL/imagebot.png" style="width:80vw;display:block;height:auto;margin:10px auto">
+<img img src="https://i.ibb.co/6mJRk0r/coollogo-com-62664414.png" alt="Crypto.Node" style="width:80vw;display:block;height: auto;margin:10px auto">
 
 ## Description
-Simple library cryptography for NodeJS
+
+Cryptonode is a simple library cryptography for NodeJS
 
 
 ## Installation
 
 ```
-npm i encrypt.js
+npm i cryptonode
 ```
 
 
 ## Table of Contents
 
-- [Crypto.js](#cryptojs)
+
+- [CryptoNode](#cryptonode)
     - [Description](#description)
+    - [Installation](#installation)
     - [Table of Contents](#table-of-contents)
     - [List Crypto](#list-crypto)
         - [Caesar Cipher](#caesar-cipher)
@@ -34,6 +37,7 @@ npm i encrypt.js
         - [Affine Cipher](#affine-cipher)
             - [Description](#description-5)
             - [Sample](#sample-4)
+
 
 
 ## List Crypto
