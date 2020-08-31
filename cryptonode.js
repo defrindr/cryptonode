@@ -459,6 +459,153 @@ class cryptonodeJS {
         return this._switcher(type, callback_e, callback_d);
     }
 
+    /**
+     * Encoding / Decoding Text to Base64 format
+     * @param {String} type 
+     * @param {String} source 
+     * @return {String}
+     */
+    b64 = (type, source) => {
+        this._required(type);
+        this._required(source);
+        let base64_table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+        /**
+         * Convert Binary to Decimal
+         * @param {String} binary 
+         * @return {Integer}
+         */
+        const convert2Decimal = (binary) => {
+            let decimal = 0;
+            let length = binary.length - 1;
+
+            binary.split("").forEach((value, index) => {
+                decimal += (value === "1") ? 2 ** (length - index) : 0;
+            });
+            return decimal;
+        }
+
+        /**
+         * Convert Floating number into Integer
+         * @param {Float} number 
+         * @return {Integer}
+         */
+        const floor = (number) => {
+            return number - (number % 1);
+        }
+
+        /**
+         * Convert Decimal into Binary
+         * @param {Integer} number 
+         * @return {String}
+         */
+        const convert2Binary = (number) => {
+            let binary = "";
+
+            while (number !== 0) {
+                binary = `${number % 2}` + binary;
+                number = floor(number / 2);
+            }
+            return binary;
+        }
+
+        /**
+         * Convert origin string to base64
+         * @return {String}
+         */
+        const encode = () => {
+            let cipher_text = "";
+
+            /**
+             * Convert Ascii string to binnary
+             * @param {String} source 
+             * @return {String}
+             */
+            const string2Binary = (source) => {
+                return source.split("").map(character => {
+                    let binary = convert2Binary(character.charCodeAt(0));
+                    let b_length = binary.length;
+
+                    if (b_length < 8) {
+                        binary = "0".repeat(8 - b_length) + binary; // add padding    
+                    }
+                    return binary;
+                }).join("");
+            };
+            source = string2Binary(source).split(/(.{24})/).filter(value => value !== "");
+
+            source.forEach((byte_list) => {
+                byte_list = byte_list.split(/(.{6})/).filter(value => value !== "");
+                let padding_length = byte_list.length % 2;
+
+                byte_list.forEach((byte) => {
+                    if (byte.length < 6) {
+                        if (6 - byte.length <= 2){
+                            padding_length = 1;
+                        }else{
+                            padding_length = 2;
+                        }
+                        byte += "0".repeat(6 - byte.length);
+                    }
+                    cipher_text += base64_table[convert2Decimal(byte)];
+                })
+
+                if (padding_length) {
+                    cipher_text += "=".repeat(padding_length);
+                }
+            });
+
+            return cipher_text;
+        };
+
+        /**
+         * Convert base64 to origin string
+         * @return {String}
+         */
+        const decode = () => {
+            let plain_text = "";
+
+            /**
+             * Find Matching Character in table and return index as binary
+             * @param {String} source 
+             * @return {String}
+             */
+            const matchWithTable = (source) => {
+                return source.split("").map(character => {
+                    let character_position = base64_table.indexOf(character);
+
+                    if (character_position === -1) {
+                        throw ("Invalid character detected");
+                    }
+                    let binary = convert2Binary(character_position);
+                    let b_length = binary.length;
+
+                    if (b_length < 6) {
+                        binary = "0".repeat(6 - b_length) + binary;
+                    }
+                    return binary;
+                }).join("");
+            };
+
+            source = source.split("=").join(""); // replace all = character
+            source = matchWithTable(source).split(/(.{24})/).filter(value => value !== "");
+
+            source.forEach((byte_list) => {
+                byte_list = byte_list.split(/(.{8})/).filter(value => value !== "");
+
+                byte_list.forEach((byte) => {
+                    if (byte.length == 8) {
+                        plain_text += String.fromCharCode(convert2Decimal(byte));
+                    }
+                })
+            });
+
+            return plain_text;
+        };
+
+        return this._switcher(type, encode, decode);
+    }
+
 }
 
 

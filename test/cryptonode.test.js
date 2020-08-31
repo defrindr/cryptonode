@@ -32,6 +32,7 @@ describe("Cryptonode Test Driven Development", function () {
             expect(decode).to.be.equal("Defri Indra Mahardika");
         });
     });
+
     describe('NATO', function () {
 
         it("blank params",
@@ -52,6 +53,7 @@ describe("Cryptonode Test Driven Development", function () {
                 expect(decode).to.be.equal("defri indra mahardika");
             });
     });
+
     describe('MORSE', function () {
         it("blank params",
             function () {
@@ -81,6 +83,7 @@ describe("Cryptonode Test Driven Development", function () {
                 expect(decode).to.be.equal("defri indra mahardika");
             });
     });
+
     describe('ROT13', function () {
         it("blank params",
             function () {
@@ -94,6 +97,7 @@ describe("Cryptonode Test Driven Development", function () {
                 expect(encode).to.be.equal("Qrsev Vaqen Znuneqvxn");
             });
     });
+
     describe('affine', function () {
         it("blank params", function () {
             expect(function () {
@@ -130,14 +134,15 @@ describe("Cryptonode Test Driven Development", function () {
             }).to.Throw("Key isnt coprime !!");
         });
     });
-    describe("Vigenere", function(){
-        it("Blank Params", function(){
-            expect(function(){
+
+    describe("Vigenere", function () {
+        it("Blank Params", function () {
+            expect(function () {
                 c.vigenere();
             }).to.Throw("Parameter value cant be blank")
         });
 
-        it("Simple usage", function(){
+        it("Simple usage", function () {
             let plain_text = "Defri Indra Mahardika";
             let cipher_text = "Svtxz Izhgr Agyadhxbo";
             let key = "programe";
@@ -148,7 +153,7 @@ describe("Cryptonode Test Driven Development", function () {
         });
 
 
-        it("using 1 key", function(){
+        it("using 1 key", function () {
             let plain_text = "Defri Indra Mahardika";
             let cipher_text = "Efgsj Joesb Nbibsejlb";
             let key = "b";
@@ -158,7 +163,7 @@ describe("Cryptonode Test Driven Development", function () {
             expect(c.vigenere('d', cipher_text, key)).to.be.equal(plain_text);
         });
 
-        it("using custom letters", function(){
+        it("using custom letters", function () {
             let plain_text = "Defri Indra Mahardika";
             let cipher_text = "Iljnp Ypflf Tedhhfkef";
             let key = "programme";
@@ -166,11 +171,35 @@ describe("Cryptonode Test Driven Development", function () {
             let custom_letters_2 = "KLMNOPQRSTUVWXYZABCDeFGHIJ";
 
 
-            expect(function(){
+            expect(function () {
                 c.vigenere('e', plain_text, key, custom_letters);
             }).to.Throw("Char key doesnt exist in letters");
 
             expect(c.vigenere('d', cipher_text, key, custom_letters_2)).to.be.equal(plain_text);
         });
-    })
+    });
+
+    describe('BASE 64', function(){
+        it('Blank Params', function(){
+            expect(function(){
+                c.b64();
+            }).to.Throw("Parameter value cant be blank")
+        });
+
+        it('Normal Usage', function(){
+            let plain_text = "Defri indra Mahardika";
+            let encoding_text = "RGVmcmkgaW5kcmEgTWFoYXJkaWth";
+
+            expect(c.b64('e', plain_text)).to.be.equal(encoding_text);
+            expect(c.b64('d', encoding_text)).to.be.equal(plain_text)
+        });
+
+        it('Contain Padding', function () {
+            expect(c.b64("encode", "any carnal pleasu")).to.be.equal("YW55IGNhcm5hbCBwbGVhc3U=")
+            expect(c.b64('e', "##Defri indra Mahardika*&^%`")).to.be.equal("IyNEZWZyaSBpbmRyYSBNYWhhcmRpa2EqJl4lYA==")
+
+            expect(c.b64("d", "YW55IGNhcm5hbCBwbGVhc3U=")).to.be.equal("any carnal pleasu")
+            expect(c.b64('decode', "IyNEZWZyaSBpbmRyYSBNYWhhcmRpa2EqJl4lYA==")).to.be.equal("##Defri indra Mahardika*&^%`")
+        });
+    });
 });
