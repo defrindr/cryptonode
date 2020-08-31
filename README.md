@@ -47,6 +47,9 @@ cd cryptonode
         - [Vigenere Cipher](#vigenere-cipher)
             - [Description](#description-6)
             - [Sample](#sample-5)
+        - [Base 64](#base-64)
+            - [Description](#description-7)
+            - [Sample](#sample-6)
 
 
 
