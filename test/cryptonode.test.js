@@ -130,4 +130,47 @@ describe("Cryptonode Test Driven Development", function () {
             }).to.Throw("Key isnt coprime !!");
         });
     });
+    describe("Vigenere", function(){
+        it("Blank Params", function(){
+            expect(function(){
+                c.vigenere();
+            }).to.Throw("Parameter value cant be blank")
+        });
+
+        it("Simple usage", function(){
+            let plain_text = "Defri Indra Mahardika";
+            let cipher_text = "Svtxz Izhgr Agyadhxbo";
+            let key = "programe";
+
+
+            expect(c.vigenere('e', plain_text, key)).to.be.equal(cipher_text);
+            expect(c.vigenere('d', cipher_text, key)).to.be.equal(plain_text);
+        });
+
+
+        it("using 1 key", function(){
+            let plain_text = "Defri Indra Mahardika";
+            let cipher_text = "Efgsj Joesb Nbibsejlb";
+            let key = "b";
+
+
+            expect(c.vigenere('e', plain_text, key)).to.be.equal(cipher_text);
+            expect(c.vigenere('d', cipher_text, key)).to.be.equal(plain_text);
+        });
+
+        it("using custom letters", function(){
+            let plain_text = "Defri Indra Mahardika";
+            let cipher_text = "Iljnp Ypflf Tedhhfkef";
+            let key = "programme";
+            let custom_letters = "OQSTUVWXYZABCDeFGHIJKLN";
+            let custom_letters_2 = "KLMNOPQRSTUVWXYZABCDeFGHIJ";
+
+
+            expect(function(){
+                c.vigenere('e', plain_text, key, custom_letters);
+            }).to.Throw("Char key doesnt exist in letters");
+
+            expect(c.vigenere('d', cipher_text, key, custom_letters_2)).to.be.equal(plain_text);
+        });
+    })
 });
