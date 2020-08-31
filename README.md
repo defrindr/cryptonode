@@ -13,13 +13,6 @@ Cryptonode.js is a simple library cryptography for NodeJS
 npm i cryptonode.js
 ```
 
-Or you can clone this repository and move ```cryptonode.js``` into your project dictionary.
-
-```
-git clone https://github.com/defrindr/cryptonode.git
-cd cryptonode
-```
-
 
 ## Table of Contents
 
@@ -44,9 +37,6 @@ cd cryptonode
         - [Affine Cipher](#affine-cipher)
             - [Description](#description-5)
             - [Sample](#sample-4)
-        - [Vigenere Cipher](#vigenere-cipher)
-            - [Description](#description-6)
-            - [Sample](#sample-5)
 
 
 
@@ -90,9 +80,8 @@ cd cryptonode
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 
 console.log(c.caesar("e", "Defri Indra Mahardika", 3));
 console.log(c.caesar("d", "Ghiul Lqgud Pdkduglnd", 3));
@@ -142,9 +131,8 @@ console.log(c.caesar("d", "Ghiul Lqgud Pdkduglnd", 3));
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 
 console.log(c.morse("e", "defri indra mahardika", {
     short: "+"
@@ -183,9 +171,8 @@ console.log(c.morse("e", "defri indra mahardika", {
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 
 console.log(c.rot13("defri indra mahardika"));
 
@@ -229,9 +216,8 @@ console.log(c.rot13("defri indra mahardika"));
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 
 console.log(c.nato("e", "defri indra mahardika"));
 
@@ -287,9 +273,8 @@ console.log(c.nato("e", "defri indra mahardika"));
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 let custom_letters = "OPQRSTUVWXYZABCDEFGHIJKLMN";
 let ciphertext = "Iloyx Xmiyz Jzuzyixdz";
 let plaintext = "Defri Indra Mahardika"
@@ -302,69 +287,6 @@ console.log(c.affine("d", ciphertext, key, custom_letters));
 // Delta Echo Foxtrot Romeo India(space) India November Delta Romeo Alfa(space) Mike Alfa Hotel Alfa Romeo Delta India Kilo Alfa
 
 ```
-
-
-
-### Vigenere Cipher
-
-#### Description
-
-<table>
-    <thead>
-        <th>Name</th>
-        <th>Params</th>
-        <th>Type Data</th>
-        <th>Nullable</th>
-        <th>Description</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="4">vigenere</td>
-            <td>type</td>
-            <td>string</td>
-            <td>:heavy_multiplication_x:</td>
-            <td>d, decode, e, encode</td>
-        </tr>
-        <tr>
-            <td>source</td>
-            <td>string</td>
-            <td>:heavy_multiplication_x:</td>
-            <td>plain text</td>
-        </tr>
-        <tr>
-            <td>keys</td>
-            <td>string</td>
-            <td>:heavy_multiplication_x:</td>
-            <td>eg : programme</td>
-        </tr>
-        <tr>
-            <td>custom_letters</td>
-            <td>string</td>
-            <td>:heavy_check_mark:</td>
-            <td> eg : KLMNOPQRSTUVWXYZABCDEFGHIJ</td>
-        </tr>
-    </tbody>
-</table>
-
-#### Sample
-
-```js
-const CryptoNode = require('cryptonode.js')
-
-const c = new CryptoNode;
-let plain_text = "Defri Indra Mahardika";
-let cipher_text = "Svtxz Izhgr Agyadhxbo";
-let key = "programe";
-
-console.log(c.vigenere('e', plain_text, key));
-console.log(c.vigenere('d', cipher_text, key));
-
-// Output : 
-// Svtxz Izhgr Agyadhxbo
-// Defri Indra Mahardika
-
-```
-
 
 
 
