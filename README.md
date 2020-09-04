@@ -37,6 +37,12 @@ npm i cryptonode.js
         - [Affine Cipher](#affine-cipher)
             - [Description](#description-5)
             - [Sample](#sample-4)
+        - [Vigenere Cipher](#vigenere-cipher)
+            - [Description](#description-6)
+            - [Sample](#sample-5)
+        - [Base 64](#base-64)
+            - [Description](#description-7)
+            - [Sample](#sample-6)
 
 
 
@@ -290,6 +296,116 @@ console.log(c.affine("d", ciphertext, key, custom_letters));
 
 
 
+### Vigenere Cipher
+
+#### Description
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Params</th>
+        <th>Type Data</th>
+        <th>Nullable</th>
+        <th>Description</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="4">vigenere</td>
+            <td>type</td>
+            <td>string</td>
+            <td>:heavy_multiplication_x:</td>
+            <td>d, decode, e, encode</td>
+        </tr>
+        <tr>
+            <td>source</td>
+            <td>string</td>
+            <td>:heavy_multiplication_x:</td>
+            <td>plain text</td>
+        </tr>
+        <tr>
+            <td>keys</td>
+            <td>string</td>
+            <td>:heavy_multiplication_x:</td>
+            <td>eg : programme</td>
+        </tr>
+        <tr>
+            <td>custom_letters</td>
+            <td>string</td>
+            <td>:heavy_check_mark:</td>
+            <td> eg : KLMNOPQRSTUVWXYZABCDEFGHIJ</td>
+        </tr>
+    </tbody>
+</table>
+
+#### Sample
+
+```js
+const CryptoNode = require('cryptonode.js')
+
+const c = new CryptoNode;
+let plain_text = "Defri Indra Mahardika";
+let cipher_text = "Svtxz Izhgr Agyadhxbo";
+let key = "programe";
+
+console.log(c.vigenere('e', plain_text, key));
+console.log(c.vigenere('d', cipher_text, key));
+
+// Output : 
+// Svtxz Izhgr Agyadhxbo
+// Defri Indra Mahardika
+
+```
+
+
+
+### Base 64
+
+#### Description
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Params</th>
+        <th>Type Data</th>
+        <th>Nullable</th>
+        <th>Description</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2">b64</td>
+            <td>type</td>
+            <td>string</td>
+            <td>:heavy_multiplication_x:</td>
+            <td>d, decode, e, encode</td>
+        </tr>
+        <tr>
+            <td>source</td>
+            <td>string</td>
+            <td>:heavy_multiplication_x:</td>
+            <td>plain text</td>
+        </tr>
+    </tbody>
+</table>
+
+#### Sample
+
+```js
+const CryptoNode = require('cryptonode.js');
+const c = new CryptoNode;
+
+c.b64("encode", "any carnal pleasu");
+c.b64('e', "##Defri indra Mahardika*&^%`");
+
+c.b64("d", "YW55IGNhcm5hbCBwbGVhc3U=");
+c.b64('decode', "IyNEZWZyaSBpbmRyYSBNYWhhcmRpa2EqJl4lYA==");
+
+// Output : 
+// YW55IGNhcm5hbCBwbGVhc3U=
+// IyNEZWZyaSBpbmRyYSBNYWhhcmRpa2EqJl4lYA==
+// any carnal pleasu
+// ##Defri indra Mahardika*&^%`
+
+```
 
 
 
