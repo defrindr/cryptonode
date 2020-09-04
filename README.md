@@ -13,13 +13,6 @@ Cryptonode.js is a simple library cryptography for NodeJS
 npm i cryptonode.js
 ```
 
-Or you can clone this repository and move ```cryptonode.js``` into your project dictionary.
-
-```
-git clone https://github.com/defrindr/cryptonode.git
-cd cryptonode
-```
-
 
 ## Table of Contents
 
@@ -93,9 +86,8 @@ cd cryptonode
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 
 console.log(c.caesar("e", "Defri Indra Mahardika", 3));
 console.log(c.caesar("d", "Ghiul Lqgud Pdkduglnd", 3));
@@ -145,9 +137,8 @@ console.log(c.caesar("d", "Ghiul Lqgud Pdkduglnd", 3));
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 
 console.log(c.morse("e", "defri indra mahardika", {
     short: "+"
@@ -186,9 +177,8 @@ console.log(c.morse("e", "defri indra mahardika", {
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 
 console.log(c.rot13("defri indra mahardika"));
 
@@ -232,9 +222,8 @@ console.log(c.rot13("defri indra mahardika"));
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 
 console.log(c.nato("e", "defri indra mahardika"));
 
@@ -290,9 +279,8 @@ console.log(c.nato("e", "defri indra mahardika"));
 #### Sample
 
 ```js
-const CryptoNode = require('cryptonode.js')
 
-const c = new CryptoNode;
+const c = new Crypto;
 let custom_letters = "OPQRSTUVWXYZABCDEFGHIJKLMN";
 let ciphertext = "Iloyx Xmiyz Jzuzyixdz";
 let plaintext = "Defri Indra Mahardika"
@@ -418,10 +406,6 @@ c.b64('decode', "IyNEZWZyaSBpbmRyYSBNYWhhcmRpa2EqJl4lYA==");
 // ##Defri indra Mahardika*&^%`
 
 ```
-
-
-
-
 
 
 

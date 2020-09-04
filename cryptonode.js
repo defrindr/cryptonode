@@ -643,7 +643,6 @@ class cryptonodeJS {
 
         return this._switcher(type, encode, decode);
     }
-
 }
 
 

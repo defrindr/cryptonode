@@ -134,7 +134,7 @@ describe("Cryptonode Test Driven Development", function () {
             }).to.Throw("Key isnt coprime !!");
         });
     });
-
+  
     describe("Vigenere", function () {
         it("Blank Params", function () {
             expect(function () {
